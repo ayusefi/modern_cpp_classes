@@ -12,56 +12,51 @@
 #include <iostream>
 #include <string>
 
-namespace igg::io_tools
-{
-ImageData ReadFromPgm(const std::string& file_name)
-{
-  std::ifstream in(file_name, std::ios_base::in);
-  if (!in)
-  {
-    return { 0, 0, 0, {} };
-  }
-
-  // Read integers, if we read chars, we get 1 digit instead of the whole number
-  std::string type;
-  int rows = 0;
-  int cols = 0;
-  int max_val = 0;
-  std::vector<uint8_t> data;
-  in >> type >> rows >> cols >> max_val;
-
-  data.resize(rows * cols);
-  int byte = 0;
-  for (int r = 0; r < rows; ++r)
-  {
-    for (int c = 0; c < cols; ++c)
-    {
-      in >> byte;
-      data[r * cols + c] = byte;
+namespace igg::io_tools {
+ImageData ReadFromPgm(const std::string& file_name) {
+    std::ifstream in(file_name, std::ios_base::in);
+    if (!in) {
+        return {0, 0, 0, {}};
     }
-  }
-  return { rows, cols, static_cast<uint8_t>(max_val), data };
+
+    // Read integers, if we read chars, we get 1 digit instead of the whole
+    // number
+    std::string type;
+    int rows = 0;
+    int cols = 0;
+    int max_val = 0;
+    std::vector<uint8_t> data;
+    in >> type >> rows >> cols >> max_val;
+
+    data.resize(rows * cols);
+    int byte = 0;
+    for (int r = 0; r < rows; ++r) {
+        for (int c = 0; c < cols; ++c) {
+            in >> byte;
+            data[r * cols + c] = byte;
+            // std::cout << byte << std::endl;
+        }
+    }
+    return {rows, cols, static_cast<uint8_t>(max_val), data};
 }
 
-bool WriteToPgm(const ImageData& image_data, const std::string& file_name)
-{
-  std::ofstream out(file_name);
-  if (!out)
-  {
-    return false;
-  }
-
-  out << "P2" << std::endl << image_data.rows << " " << image_data.cols << std::endl << image_data.max_val << std::endl;
-
-  for (int r = 0; r < image_data.rows; ++r)
-  {
-    for (int c = 0; c < image_data.cols; ++c)
-    {
-      out << image_data.data[r * image_data.cols + c] << " ";
+bool WriteToPgm(const ImageData& image_data, const std::string& file_name) {
+    std::ofstream out(file_name);
+    if (!out) {
+        return false;
     }
-    out << std::endl;
-  }
-  return true;
+
+    out << "P2" << std::endl
+        << image_data.rows << " " << image_data.cols << std::endl
+        << image_data.max_val << std::endl;
+
+    for (int r = 0; r < image_data.rows; ++r) {
+        for (int c = 0; c < image_data.cols; ++c) {
+            out << image_data.data[r * image_data.cols + c] << " ";
+        }
+        out << std::endl;
+    }
+    return true;
 }
 
 }  // namespace igg::io_tools

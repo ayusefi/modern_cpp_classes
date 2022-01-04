@@ -7,7 +7,7 @@ project(homework_6)
 SET(OpenCV_DIR /home/abdullah/opencv/build/share/OpenCV)
 
 # Include OpenCV
-find_package(OpenCV 3 REQUIRED)
+find_package(OpenCV 4 REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 include_directories(${PROJECT_SOURCE_DIR}/include)

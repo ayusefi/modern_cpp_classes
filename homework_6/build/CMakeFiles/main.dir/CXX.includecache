@@ -22,13 +22,13 @@ string
 vector
 -
 
-/home/abdullah/modern_cpp/modern_cpp_classes/homework_6/src/main.cpp
+/home/abdullah/cpp_learning/modern_cpp/modern_cpp_classes/homework_6/src/main.cpp
 iostream
--
-vector
 -
 string
 -
+vector
+-
 homework_6.h
-/home/abdullah/modern_cpp/modern_cpp_classes/homework_6/src/homework_6.h
+/home/abdullah/cpp_learning/modern_cpp/modern_cpp_classes/homework_6/src/homework_6.h
 
