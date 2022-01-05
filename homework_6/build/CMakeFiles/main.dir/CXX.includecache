@@ -22,7 +22,7 @@ string
 vector
 -
 
-/home/abdullah/cpp_learning/modern_cpp/modern_cpp_classes/homework_6/src/main.cpp
+/home/abdullah/modern_cpp/modern_cpp_classes/homework_6/src/main.cpp
 iostream
 -
 string
@@ -30,5 +30,5 @@ string
 vector
 -
 homework_6.h
-/home/abdullah/cpp_learning/modern_cpp/modern_cpp_classes/homework_6/src/homework_6.h
+/home/abdullah/modern_cpp/modern_cpp_classes/homework_6/src/homework_6.h
 
